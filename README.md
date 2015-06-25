@@ -3,11 +3,10 @@ A Java Implementation of Classic Snake
 - A Recreational Project
 
 Features:
-
-1) Splash Screen (with animation)
-2) Rotating Fruit
-3) Pausing (Work in Progress)
-4) Play Again (or Exit)
+-Splash Screen (with animation)
+-Rotating Fruit
+-Pausing (Work in Progress)
+-Play Again (or Exit)
 
 To play, compile the project to a .jar; Main is in SnakeGame.java (the main project file).
 
