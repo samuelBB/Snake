@@ -99,7 +99,7 @@ public class SplashScreen extends JPanel {
     }
 
     private void loadSnakeImage() {
-        snakeIcon = new ImageIcon("/Users/Shmu/Documents/Backup Files/Docs/Code/SnakeIMGs(for Snake)/snk.png");
+        snakeIcon = new ImageIcon("snk.png");
         snakeImage = snakeIcon.getImage();
     }
 
