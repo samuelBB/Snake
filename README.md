@@ -1,5 +1,5 @@
 # Snake
-A Java Implementation of Classic Snake - A Recreational Project
+A Java Implementation of Classic Snake
 
 Features:
 - Splash Screen (with animation)
