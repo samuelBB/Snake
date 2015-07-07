@@ -43,9 +43,9 @@ public class GameEngine {
         // int lastSecondTime = (int) (lastUpdateTime / 1000000000);
 
         while (true) {
-            /** on unpause snake "jumps" */
+            /** on resume snake "jumps" */
             if(gameInstance.paused) {
-                waitOnUnPause();
+                waitForResume();
                 gameInstance.paused = false;
             }
             // use latch on a bool to check for a pause - the snakeGame class should have a var that gets set at input
@@ -62,7 +62,7 @@ public class GameEngine {
                 updateCount++;
             }
 
-            // If an update hangs, don't do too many "catchups"
+            // If an update hangs, don't do too many "catch-ups"
             if ( now - lastUpdateTime > TIME_BETWEEN_UPDATES) {
                 lastUpdateTime = now - TIME_BETWEEN_UPDATES;
             }
@@ -134,7 +134,7 @@ public class GameEngine {
         KeyboardFocusManager.getCurrentKeyboardFocusManager().removeKeyEventDispatcher(dispatcher);
     }
 
-    public void waitOnUnPause() {
+    public void waitForResume() {
         final CountDownLatch latch = new CountDownLatch(1);
         KeyEventDispatcher dispatcher = new KeyEventDispatcher() {
             // Anonymous class invoked from EDT

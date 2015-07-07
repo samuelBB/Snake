@@ -116,11 +116,11 @@ public class SplashScreen extends JPanel {
     }
 
     // make sure direction changes don't cause the snake to go out of bounds
-    public boolean willHitWall(Direction newDirec) {
+    public boolean willHitWall(Direction newDirection) {
         int headX = snake.getHead().x,
             headY = snake.getHead().y;
 
-        switch (newDirec) {
+        switch (newDirection) {
             case East:
                 if (headX + 5 < boardSize)
                     return false;
@@ -148,12 +148,10 @@ public class SplashScreen extends JPanel {
 
             for(newDirection = directionArray[directionGen.nextInt(4)]; true;
                 newDirection = directionArray[directionGen.nextInt(4)]) {
-                if( newDirection == Direction.East && currentDirection == Direction.West)
-                    moveCount = 0;
-                //noinspection StatementWithEmptyBody
+                if( newDirection == Direction.East && currentDirection == Direction.West) moveCount = 0;
                 if  (!((currentDirection.ordinal() <  2 && newDirection.ordinal()  < 2 && currentDirection != newDirection)
                  || (currentDirection.ordinal() >= 2 && newDirection.ordinal() >= 2 && currentDirection != newDirection)
-                 ||  willHitWall(newDirection))) { break; }
+                 ||  willHitWall(newDirection))) break;
             }
             if (currentDirection != newDirection) {
                 currentDirection = newDirection;

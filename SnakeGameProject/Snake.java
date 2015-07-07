@@ -50,12 +50,12 @@ public class Snake {
             setOrientation(i, getOrientation(i - 1));
     }
 
-    public void updateOrientation(Orientation newHeadOrient, boolean direcFactor) {
+    public void updateOrientation(Orientation newHeadOrient, boolean directionFactor) {
         for(int i = length() - 1; i > 1; i--)
             setOrientation(i, getOrientation(i - 1));
 
         setOrientation(0, newHeadOrient);
-        setOrientation(1, direcFactor ? Orientation.Corner_N$E_S$W : Orientation.Corner_N$W_S$E);  //obviously change to match case
+        setOrientation(1, directionFactor ? Orientation.Corner_N$E_S$W : Orientation.Corner_N$W_S$E);  //obviously change to match case
     }
 
     /** Getters */

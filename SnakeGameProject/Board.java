@@ -75,7 +75,7 @@ public class Board extends JPanel {
             // we'd then have to have a getColorAt(x, y) like the orientation method, so maybe better to have a
             // getLinkNoAt(x, y) then use that to retrieve color and orientation, for efficiency.
             // or could have a hash-table in snake class defined by:
-            // (K, V) = (point(x-coord, y-coord), link #)
+            // (K, V) = (point(x-coordinate, y-coordinate), link #)
             // this would achieve lookup efficiency; question: would we clear after every position update?
             // unclear if space or speed concerns matter more here, or maybe doesn't matter; test...
 
