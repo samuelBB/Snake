@@ -7,7 +7,7 @@
  *    i) static home-screen
  *   ii) set difficulty
  *  iii) board layout presets (or random board)
- *   iv) score-tracker
+ *   iv) score-tracking
  *    v) modify/choose screen size
  *   vi) choose snake color (or choose to randomly color)
  * 4) orientation lookup (and/or color lookup if applicable); see notes at Snake.java l.91 and Board.Java l.74
@@ -15,13 +15,14 @@
 
 package SnakeGameProject;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
+
 
 public class SnakeGame extends JFrame {
     SplashScreen s;
@@ -49,7 +50,7 @@ public class SnakeGame extends JFrame {
 
     public SnakeGame() {
         setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         s = new SplashScreen(currentBoardSize, currentElementSize);
         add(s);
@@ -111,7 +112,7 @@ public class SnakeGame extends JFrame {
                     }
                     snakeMoved = false;
                     directionChanged = true;
-                    directionChangeFactor = Math.abs(curr.ordinal() - getDirection().ordinal()) == 2 ? true : false;
+                    directionChangeFactor = Math.abs(curr.ordinal() - getDirection().ordinal()) == 2;
                 } else switch (keycode) {
                     case KeyEvent.VK_ENTER:
                         break;

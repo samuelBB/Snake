@@ -92,14 +92,14 @@ public class SplashScreen extends JPanel {
 
             while ( now - lastRenderTime < TARGET_TIME_BETWEEN_RENDERS && now - lastUpdateTime < TIME_BETWEEN_UPDATES) {
                 Thread.yield();
-                try {Thread.sleep(1);} catch(Exception e) {}
+                try {Thread.sleep(1);} catch(Exception ignored) {}
                 now = System.nanoTime();
             }
         }
     }
 
     private void loadSnakeImage() {
-        snakeIcon = new ImageIcon("snk.png");
+        snakeIcon = new ImageIcon("SnakeGameProject/snk.png");
         snakeImage = snakeIcon.getImage();
     }
 
@@ -150,16 +150,14 @@ public class SplashScreen extends JPanel {
                 newDirection = directionArray[directionGen.nextInt(4)]) {
                 if( newDirection == Direction.East && currentDirection == Direction.West)
                     moveCount = 0;
-                if ((currentDirection.ordinal() <  2 && newDirection.ordinal()  < 2 && currentDirection != newDirection)
+                //noinspection StatementWithEmptyBody
+                if  (!((currentDirection.ordinal() <  2 && newDirection.ordinal()  < 2 && currentDirection != newDirection)
                  || (currentDirection.ordinal() >= 2 && newDirection.ordinal() >= 2 && currentDirection != newDirection)
-                 ||  willHitWall(newDirection))
-                    continue;
-                else break;
+                 ||  willHitWall(newDirection))) { break; }
             }
             if (currentDirection != newDirection) {
                 currentDirection = newDirection;
-                directionChangeFactor = Math.abs(newDirection.ordinal() - currentDirection.ordinal()) == 2 ?
-                                        true : false;
+                directionChangeFactor = Math.abs(newDirection.ordinal() - currentDirection.ordinal()) == 2;
                 directionChanged = true;
             }
         }
@@ -207,12 +205,11 @@ public class SplashScreen extends JPanel {
 
         String msg = "Press any Key to Continue";
         Font small = new Font("Herculanum", Font.BOLD, 18); // no promises about OS font compatibility!
-        FontMetrics metr = getFontMetrics(small);
         g2d.setColor(Color.BLACK);
         g2d.setFont(small);
         g2d.drawString(msg, getWidth() / 2 - 120 , getHeight() / 2 + 130);
 
-        isVertical = currentDirection.ordinal() < 2 ? true : false;
+        isVertical = currentDirection.ordinal() < 2;
 
         for( int x = 0; x < boardSize; x++ )
             for( int y = 0; y < boardSize; y++ )

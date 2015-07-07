@@ -95,7 +95,7 @@ public class GameEngine {
                 // prevents game from hogging CPU
                 // removing this still works (maybe even better), but CPU-hogging will be a factor on some OSs
                 // on the other hand, this can cause bad stuttering on some OSs
-                try {Thread.sleep(1);} catch(Exception e) {}
+                try {Thread.sleep(1);} catch(Exception ignored) {}
 
                 now = System.nanoTime();
             }

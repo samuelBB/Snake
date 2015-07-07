@@ -69,7 +69,7 @@ public class Board extends JPanel {
             gameInstance.g.gameOver = true;
         }
         else {
-            isVertical = gameInstance.getDirection().ordinal() < 2 ? true : false;
+            isVertical = gameInstance.getDirection().ordinal() < 2;
 
             // to have each body link a different color permanently, must have snake links have a color field.
             // we'd then have to have a getColorAt(x, y) like the orientation method, so maybe better to have a
